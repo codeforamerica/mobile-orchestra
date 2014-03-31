@@ -38,6 +38,7 @@ var phone = io.of('/phone')
     console.log('Phone Connected; Active Phones: ' + phones);
 
     speaker.emit('phoneAdd', socket.id)
+    phone.emit('updatePhoneCount', phones);
 
 
     socket.on('disconnect', function () {
@@ -46,5 +47,6 @@ var phone = io.of('/phone')
       console.log('Phone Disconnected; Active Phones: ' + phones);
 
       speaker.emit('phoneDel', socket.id)
+      phone.emit('updatePhoneCount', phones);
     })
   })

@@ -23,7 +23,12 @@
       var socket = io.connect('/phone');
       socket.on('connect', function (e) {
         console.log('Connected.');
-      })
+
+      });
+
+      socket.on('updatePhoneCount', function(phoneCount) {
+        console.log('Got ' + phoneCount + ' Active Phones.');
+      });
     </script>
   </head>
   <body>
