@@ -13,7 +13,9 @@ var io = io.listen(app)
 
 io.set('log level', 1)
 
-app.listen(3000);
+var port = process.env.PORT || 3000;
+
+app.listen(port);
 
 var phones = []
 
@@ -28,7 +30,7 @@ var speaker = io.of('/speaker')
     })
 
   })
-  
+
 var phone = io.of('/phone')
   .on('connection', function (socket) {
     console.log('phone connected', socket.id)
