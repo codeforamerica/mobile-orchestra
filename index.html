@@ -5,20 +5,25 @@
         </title>
     </head>
     <body onload="init()">
+        <h1 id="status">Mobile Orchestra</h1>
         <script src="http://code.createjs.com/soundjs-0.5.2.min.js"></script>
         <script>
+            var displayMessage = null;
+
             function init() {
+                displayMessage = document.getElementById("status");
+
                 // if initializeDefaultPlugins returns false, we cannot play sound
                 // @todo: Show the user a friendly error message if this isn't going to work.
                 if (!createjs.Sound.initializeDefaultPlugins()) { return; }
 
-                var audioPath = "../_assets_soundjs";
+                var audioPath = "assets/";
                 var manifest = [
-                    {id:"Music", src:"18-machinae_supremacy-lord_krutors_dominion.ogg"},
-                    {id:"Thunder", src:"Thunder1.ogg"}
+                    {id:"Music", src:"cowbell.mp3"},
+//                    {id:"Thunder", src:"Thunder1.mp3"}
                 ];
 
-                createjs.Sound.alternateExtensions = ["mp3"];
+                createjs.Sound.alternateExtensions = ["ogg"];
                 createjs.Sound.addEventListener("fileload", handleLoad);
                 createjs.Sound.registerManifest(manifest, audioPath);
             }
