@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <script src="/socket.io/socket.io.js"></script>
     <link rel="stylesheet" href="static/animate.css">
     <style type="text/css">
       body {
@@ -19,6 +18,7 @@
       }
     </style>
     <title>More Cowbell</title>
+    <script src="/socket.io/socket.io.js"></script>
     <script>
       var socket = io.connect('/phone');
       socket.on('connect', function (e) {
@@ -31,12 +31,20 @@
     </div>
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script>
-      animateFinishedEvent = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend'
-      $("#cowbell").bind(animateFinishedEvent, function() {
-        $("#cowbell").removeClass('animated shake');
-      });
-      $("#cowbell").bind('click', function() {
-        $('#cowbell').addClass('animated shake');
+      $(document).ready(function() {
+        animateFinishedEvent = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+
+        var audioElement = document.createElement('audio');
+        audioElement.setAttribute('src', 'sound/cowbell.mp3');
+
+        $("#cowbell").bind(animateFinishedEvent, function() {
+          $("#cowbell").removeClass('animated shake');
+          audioElement.stop();
+        });
+        $("#cowbell").bind('click', function() {
+          $('#cowbell').addClass('animated shake');
+          audioElement.play();
+        });
       });
     </script>
   </body>
