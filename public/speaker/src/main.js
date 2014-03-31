@@ -11,7 +11,7 @@ $(function() {
    */
 
   var letters = ['A', 'B', 'C', 'D', 'E', 'F'];
-  var path = '/assets/', filetype = '.mp3';
+  var path = 'assets/', filetype = '.mp3';
   var asset_count = 0, $loaded = $('#loaded');
 
   $('#total-assets').html(26 * letters.length);

@@ -19,7 +19,7 @@ app.listen(port);
 
 var phones = []
 
-var speaker = io.of('/speaker')
+var speaker = io.of('/speaker-socket')
   .on('connection', function (socket) {
 
     console.log('speaker connected')

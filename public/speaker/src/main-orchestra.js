@@ -1,6 +1,4 @@
 
-console.log('hi drew');
-
 var number_of_attendees = 0;
 
 var sequences = [
@@ -18,6 +16,7 @@ var sequences = [
 
 function personjoins(data) {
 
+  console.log('Hi Drew.');
   // we can only have so many noises!
   if (number_of_attendees >= sequences.length) {
     console.log("Time to make more tracks! We have more people than tracks!");
@@ -31,9 +30,12 @@ function personjoins(data) {
 
 
 function personquits(data) {
+  console.log('Bye Drew.');
   var exiting_sequence = sequences[number_of_attendees-1];
-  superloops.remove(exiting_sequence.name);
-  number_of_attendees--;
+  if (exiting_sequence) {
+    superloops.remove(exiting_sequence.name);
+    number_of_attendees--;
+  }
 }
 
 
@@ -48,7 +50,7 @@ $(document).ready(function() {
   socket.on('phoneAdd', personjoins);
   socket.on('phoneDel', personquits);
 
-  personjoins();
+ // personjoins();
   // personjoins();
 
 });
