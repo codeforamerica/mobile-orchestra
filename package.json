@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/fureigh/mobile-orchestra/issues"
   },
-  "homepage": "https://github.com/fureigh/mobile-orchestra"
+  "homepage": "https://github.com/fureigh/mobile-orchestra",
+  "dependencies": {
+    "ecstatic": "~0.4.13",
+    "socket.io": "~0.9.16"
+  }
 }
