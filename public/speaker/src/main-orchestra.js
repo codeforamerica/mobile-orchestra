@@ -43,14 +43,11 @@ $(document).ready(function() {
 
   // superloops.add('base', 'e - - - e - - - e - - - e - - -');
 
-  // var channel = "http://server/channel";
   var channel = "/speaker-socket"
   var socket = io.connect(channel);
 
   socket.on('phoneAdd', personjoins);
   socket.on('phoneDel', personquits);
 
- // personjoins();
-  // personjoins();
 
 });
