@@ -27,4 +27,13 @@ io.of('/speaker')
     })
 
   })
-  
+
+io.of('/phone')
+  .on('connection', function (socket) {
+    console.log('phone connect.');
+
+    socket.on('disconnect', function() {
+      console.log('phone disconnect.');
+    });
+
+  });
