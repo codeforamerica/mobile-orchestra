@@ -35,6 +35,7 @@ var phone = io.of('/phone')
   .on('connection', function (socket) {
     console.log('phone connected', socket.id)
     phones.push(socket)
+    console.log(phones.length);
 
     speaker.emit('phoneAdd', socket.id)
 
