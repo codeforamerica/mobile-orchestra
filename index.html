@@ -12,7 +12,20 @@
             // @todo: Show the user a friendly error message if this isn't going to work.
             if (!createjs.Sound.initializeDefaultPlugins()) { return; }
 
-        }
+            var audioPath = "assets/";
+                var manifest = [
+                    {id:"Music", src:"18-machinae_supremacy-lord_krutors_dominion.ogg"},
+                    {id:"Thunder", src:"Thunder1.ogg"}
+                ];
+
+                createjs.Sound.alternateExtensions = ["mp3"];
+                createjs.Sound.addEventListener("fileload", handleLoad);
+                createjs.Sound.registerManifest(manifest, audioPath);
+            }
+
+            function handleLoad(event) {
+                createjs.Sound.play(event.src);
+            }
         </script>
     </body>
 </html>
