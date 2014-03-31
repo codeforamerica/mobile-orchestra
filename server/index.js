@@ -9,13 +9,22 @@ var app = http.createServer(
   ecstatic({ root: public_path })
 );
 
-var io = io.listen(app);
+var io = io.listen(app)
+
+io.set('log level', 1)
 
 app.listen(3000);
 
-io.sockets.on('connection', function (socket) {
-  socket.emit('news', { hello: 'world' });
-  socket.on('my other event', function (data) {
-    console.log(data);
-  });
-});
+var phones = []
+
+io.of('/speaker')
+  .on('connection', function (socket) {
+
+    console.log('speaker connected')
+
+    socket.on('disconnect', function () {
+      console.log('speaker disconnected')
+    })
+
+  })
+  
