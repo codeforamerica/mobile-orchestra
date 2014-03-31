@@ -17,7 +17,7 @@ var port = process.env.PORT || 3000;
 
 app.listen(port);
 
-var phones = []
+var phones = 0;
 
 var speaker = io.of('/speaker-socket')
   .on('connection', function (socket) {
@@ -33,19 +33,18 @@ var speaker = io.of('/speaker-socket')
 
 var phone = io.of('/phone')
   .on('connection', function (socket) {
-    console.log('phone connected', socket.id)
-    phones.push(socket)
-    console.log(phones.length);
+    phones++;
+
+    console.log('Phone Connected; Active Phones: ' + phones);
 
     speaker.emit('phoneAdd', socket.id)
 
 
     socket.on('disconnect', function () {
-      console.log('phone disconnected')
+      phones--;
+
+      console.log('Phone Disconnected; Active Phones: ' + phones);
 
       speaker.emit('phoneDel', socket.id)
-
-      // remove the socket fromm the phones arr
-      phones.splice(phones.indexOf(socket), 1)
     })
   })
