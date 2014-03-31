@@ -1,0 +1,15 @@
+<html>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io.connect('/phone');
+  socket.on('connect', function (e) {
+
+    document.querySelector('#status').textContent = 'connected'
+
+  })
+</script>
+<body>
+<h1>phone</h1>
+<div id="status"></div>
+</body>
+</html>
