@@ -3,7 +3,7 @@ var io = require('socket.io');
 var fs = require('fs');
 var ecstatic = require('ecstatic');
 
-var public_path = __dirname + '/../public';
+var public_path = __dirname + '/public';
 
 var app = http.createServer(
   ecstatic({ root: public_path })
