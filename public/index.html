@@ -14,7 +14,18 @@
         height: 200px;
         margin:0 auto;
         margin-top:150px;
+        padding-top:50px;
         width:150px;
+      }
+      .subscription-count {
+        background-color:rgba(0,0,0,0.7);
+        border-radius:30px;
+        color:white;
+        font-size:20pt;
+        margin:0 auto;
+        padding:10px;
+        text-align:center;
+        width:30px;
       }
     </style>
     <title>More Cowbell</title>
@@ -28,9 +39,16 @@
   </head>
   <body>
     <div id="cowbell" class="cowbell">
+      <div class="subscription-count">
+        10
+      </div>
     </div>
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script>
+      function updateCount(count) {
+        $('.subscription-count').text(count);
+      }
+      
       $(document).ready(function() {
         animateFinishedEvent = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
 
