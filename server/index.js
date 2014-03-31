@@ -17,14 +17,32 @@ app.listen(3000);
 
 var phones = []
 
-io.of('/speaker')
+var speaker = io.of('/speaker')
   .on('connection', function (socket) {
 
     console.log('speaker connected')
 
     socket.on('disconnect', function () {
+
       console.log('speaker disconnected')
     })
 
   })
   
+var phone = io.of('/phone')
+  .on('connection', function (socket) {
+    console.log('phone connected', socket.id)
+    phones.push(socket)
+
+    speaker.emit('phoneAdd', socket.id)
+
+
+    socket.on('disconnect', function () {
+      console.log('phone disconnected')
+
+      speaker.emit('phoneDel', socket.id)
+
+      // remove the socket fromm the phones arr
+      phones.splice(phones.indexOf(socket), 1)
+    })
+  })
