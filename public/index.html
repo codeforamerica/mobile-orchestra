@@ -1,15 +1,43 @@
-<html>
-<script src="/socket.io/socket.io.js"></script>
-<script>
-  var socket = io.connect('/phone');
-  socket.on('connect', function (e) {
-
-    document.querySelector('#status').textContent = 'connected'
-
-  })
-</script>
-<body>
-<h1>phone</h1>
-<div id="status"></div>
-</body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="static/animate.css">
+    <style type="text/css">
+      body {
+        background: url('static/rainbow_white.gif');
+      }
+      .cowbell {
+        background: url('static/cowbell_trans.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 200px;
+        margin:0 auto;
+        margin-top:150px;
+        width:150px;
+      }
+    </style>
+    <title>More Cowbell</title>
+    <script>
+      var socket = io.connect('/phone');
+      socket.on('connect', function (e) {
+        console.log('Connected.');
+      })
+    </script>
+  </head>
+  <body>
+    <div id="cowbell" class="cowbell">
+    </div>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script>
+      animateFinishedEvent = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend'
+      $("#cowbell").bind(animateFinishedEvent, function() {
+        $("#cowbell").removeClass('animated shake');
+      });
+      $("#cowbell").bind('click', function() {
+        $('#cowbell').addClass('animated shake');
+      });
+    </script>
+  </body>
 </html>
