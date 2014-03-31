@@ -19,17 +19,24 @@
 
                 var audioPath = "assets/";
                 var manifest = [
-                    {id:"Music", src:"cowbell.mp3"},
-//                    {id:"Thunder", src:"Thunder1.mp3"}
+                    {id:"Cowbell", src:"cowbell.mp3"},
+                    // @todo: Add more sounds!
                 ];
 
-                createjs.Sound.alternateExtensions = ["ogg"];
+//                createjs.Sound.alternateExtensions = ["ogg"];
                 createjs.Sound.addEventListener("fileload", handleLoad);
                 createjs.Sound.registerManifest(manifest, audioPath);
             }
 
             function handleLoad(event) {
-                createjs.Sound.play(event.src);
+                displayMessage.addEventListener("click", handleClick, false);
+                displayMessage.innerHTML = "Touch to begin!";
+            }
+
+            function handleClick(event) {
+                displayMessage.innerHTML = "More cowbell!";
+//                createjs.Sound.play(event.src);
+                createjs.Sound.play("Cowbell");
             }
         </script>
     </body>
