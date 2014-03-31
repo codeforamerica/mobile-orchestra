@@ -1,0 +1,19 @@
+{
+  "name": "mobile-orchestra",
+  "version": "0.0.0",
+  "description": "yay things",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fureigh/mobile-orchestra.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fureigh/mobile-orchestra/issues"
+  },
+  "homepage": "https://github.com/fureigh/mobile-orchestra"
+}
