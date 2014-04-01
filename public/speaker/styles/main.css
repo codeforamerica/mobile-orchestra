@@ -324,4 +324,8 @@ body {
     z-index: 1;
     text-align: center;
     width: 100%;
+    font-family: 'odin_roundedbold';
+    color: white;
+    padding-top:30px;
+    text-transform: uppercase;
   }

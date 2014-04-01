@@ -26,7 +26,7 @@ function personjoins(data) {
   number_of_attendees++;
   var incoming_sequence = sequences[number_of_attendees-1];
   superloops.add(incoming_sequence.name, incoming_sequence.sequence);
-  $('h1.counter').text(number_of_attendees + ' Phones Listening');
+  $('h1.counter').text(number_of_attendees + ' Phones Jamming');
 }
 
 
@@ -36,7 +36,7 @@ function personquits(data) {
   if (exiting_sequence) {
     superloops.remove(exiting_sequence.name);
     number_of_attendees--;
-    $('h1.counter').text(number_of_attendees + ' Phones Listening');
+    $('h1.counter').text(number_of_attendees + ' Phones Jamming');
   }
 }
 
