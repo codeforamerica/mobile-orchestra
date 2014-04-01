@@ -63,7 +63,8 @@
 
         $("#cowbell").bind(animateFinishedEvent, function() {
           $("#cowbell").removeClass('animated shake');
-          audioElement.stop();
+          audioElement.pause();
+          audioElement.currentTime = 0;
         });
         $("#cowbell").bind('click', function() {
           $('#cowbell').addClass('animated shake');
