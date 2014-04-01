@@ -25,7 +25,7 @@ var speaker = io.of('/speaker-socket')
     console.log('speaker connected')
 
     for(var i = phones; i > 0; i--) {
-	socket.emit('phoneAdd',true)
+    	socket.emit('phoneAdd',true)
     }
 
     socket.on('disconnect', function () {

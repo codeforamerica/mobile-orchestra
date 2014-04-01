@@ -7,6 +7,14 @@
     <style type="text/css">
       body {
         background: url('static/rainbow_white.gif');
+	font-family: 'odin_roundedbold';
+      }
+      #logo {
+	margin-top: 100px;
+	text-align: center;
+      }
+      #logo img {
+	width: 280px;
       }
       .cowbell {
         background: url('static/cowbell_trans.png');
@@ -14,20 +22,20 @@
         background-size: contain;
         height: 200px;
         margin:0 auto;
-        margin-top:150px;
+	margin-top:65px;
         padding-top:50px;
         width:150px;
       }
       .subscription-count {
-        background-color: #55D590;
-        border-radius:30px;
-        color:white;
-        font-family: odin rounded;
-        font-size:20pt;
-        margin:0 auto;
-        padding:10px;
-        text-align:center;
-        width:30px;
+	  background-color: #55D590;
+	  border-radius: 100px;
+	  color: #FFFFFF;
+	  font-size: 20pt;
+	  line-height: 1em;
+	  margin: 0 auto;
+	  padding: 21px 10px 0;
+	  text-align: center;
+	  width: 30px;
       }
 
     </style>
@@ -37,6 +45,10 @@
           </script>
   </head>
   <body>
+    <div id="logo">
+    <img src="static/logo.png">
+    </div>
+
     <div id="cowbell" class="cowbell">
       <div class="subscription-count">
         0
