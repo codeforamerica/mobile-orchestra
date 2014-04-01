@@ -31,21 +31,12 @@
     <title>More Cowbell</title>
     <script src="/socket.io/socket.io.js"></script>
     <script>
-      var socket = io.connect('/phone');
-      socket.on('connect', function (e) {
-        console.log('Connected.');
-
-      });
-
-      socket.on('updatePhoneCount', function(phoneCount) {
-        console.log('Got ' + phoneCount + ' Active Phones.');
-      });
-    </script>
+          </script>
   </head>
   <body>
     <div id="cowbell" class="cowbell">
       <div class="subscription-count">
-        10
+        0
       </div>
     </div>
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -53,8 +44,18 @@
       function updateCount(count) {
         $('.subscription-count').text(count);
       }
-      
+
       $(document).ready(function() {
+        var socket = io.connect('/phone');
+        socket.on('connect', function (e) {
+          console.log('Connected.');
+        });
+
+        socket.on('updatePhoneCount', function(phoneCount) {
+          console.log('Got ' + phoneCount + ' Active Phones.');
+          updateCount(phoneCount);
+        });
+
         animateFinishedEvent = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
 
         var audioElement = document.createElement('audio');
