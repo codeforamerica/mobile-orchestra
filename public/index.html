@@ -83,10 +83,41 @@
         $("#cowbell").bind(animateFinishedEvent, function() {
           $("#cowbell").removeClass('animated shake');
         });
-        $("#cowbell").bind('click', function() {
+        $("#cowbell").bind('click', shake);
+
+        function shake() {
           $('#cowbell').addClass('animated shake');
           playCowbell()
-        });
+        }
+
+
+        var o0 = null
+        var o1 = null
+        var threshold = 40
+        window.addEventListener('deviceorientation', function (e) {
+
+          o1 = {
+            x: e.alpha,
+            y: e.beta,
+            z: e.gamma
+          }
+
+          if (o0) {
+            // document.body.innerHTML = JSON.stringify(o1)
+            var delta = [o1.x-o0.x, o1.y-o0.y, o1.z-o0.z].map(Math.abs)
+
+            if (delta[0] >= 40 || delta[1] >= 40 || delta[2] >= 40) {
+
+              shake()
+            }
+          }
+
+          o0 = o1
+
+        }, true)
+
+
+
       });
     </script>
   </body>
