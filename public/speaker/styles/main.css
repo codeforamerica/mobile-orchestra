@@ -318,3 +318,10 @@ body {
 
   to {
     transform: rotate(360deg); } }
+
+  h1.counter {
+    position:fixed;
+    z-index: 1;
+    text-align: center;
+    width: 100%;
+  }
