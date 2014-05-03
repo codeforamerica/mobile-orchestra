@@ -5,26 +5,24 @@
     <link rel="stylesheet" href="static/animate.css">
     <link rel="stylesheet" href="fonts/stylesheet.css" type="text/css" charset="utf-8" />
     <style type="text/css">
-      body {
-        background: #4348e4;
-	font-family: 'odin_roundedbold';
+	  body {
+	  background: #4348e4;
+	  font-family: 'odin_roundedbold';
       }
       #logo {
-	margin-top: 100px;
-	text-align: center;
+	  margin-top: 100px;
+	  text-align: center;
       }
       #logo img {
-	width: 280px;
+	  width: 280px;
       }
       .cowbell {
-        background: url('static/logo2.png');
-        background-repeat: no-repeat;
-        background-size: contain;
         height: 400px;
         margin:0 auto;
 		margin-top:65px;
         padding-top:50px;
-        width: 400px;
+        max-width: 400px;
+        text-align: center;
       }
       .subscription-count {
 	  background-color: rgba(0,0,0,0.6);
@@ -37,7 +35,13 @@
 	  text-align: center;
 	  width: 30px;
       }
-
+      .bike-logo {
+      max-width: 310px;
+      }
+      .logo-text {
+	  padding-top: 26px;
+	  max-width: 84%;
+	  }
     </style>
     <title>More Cowbell</title>
     <script src="/socket.io/socket.io.js"></script>
@@ -55,6 +59,8 @@
       <div class="subscription-count">
         0
       </div>
+      <img class="bike-logo" src="static/mob-orc-white.svg">
+      <img class="logo-text" src="static/mob-orc-text.png">
     </div>
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script>
